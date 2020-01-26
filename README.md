@@ -16,3 +16,17 @@ Los cores utilizados al ejecutar el programa con 3 hilos
 
 ![](https://raw.githubusercontent.com/AndresFelipeGualdron/DogsRace/master/parte1/img/3.PNG)
 Codigo de implementacion para iniciar los 3 hilos
+
+3. What you have been asked for is: you must modify the application so that when 5 seconds have elapsed since the execution started, all the threads are stopped and the number of primes ​​found so far is displayed. Then, you must wait for the user to press ENTER to resume their execution.
+
+![](https://raw.githubusercontent.com/AndresFelipeGualdron/DogsRace/master/parte1/img/4.PNG)
+en el metodo run del Thread agregamos el codigo necesario para poder pusar, continuar y suspender el thread
+
+![](https://raw.githubusercontent.com/AndresFelipeGualdron/DogsRace/master/parte1/img/5.PNG)
+los atributos agregados para poder manipular el Thread y saber cuando ha terminado su proceso
+
+![](https://raw.githubusercontent.com/AndresFelipeGualdron/DogsRace/master/parte1/img/6.PNG)
+los metodos agregados para manipular el Thread y saber cuando ha finalizado.
+
+![](https://raw.githubusercontent.com/AndresFelipeGualdron/DogsRace/master/parte1/img/7.PNG)
+creamos un ciclo el cual para cada cinco segundo los hilos y muestra los primos encontrados hasta ese momento
