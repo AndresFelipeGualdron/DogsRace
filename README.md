@@ -4,6 +4,8 @@
 
 # Dogs Race case
 
+## Parte 1
+
 1. Review the "concurrent cousins" program (in the folder part1), provided in the package edu.eci.arsw.primefinder. This is a program that calculates the prime numbers between two intervals, distributing their search among independent threads. For now, it has a single thread that seeks cousins ​​between 0 and 30,000,000. Run it, open the operating system process manager, and verify how many cores are used by it.
 
 ![](https://raw.githubusercontent.com/AndresFelipeGualdron/DogsRace/master/parte1/img/1.PNG)
@@ -30,3 +32,6 @@ los metodos agregados para manipular el Thread y saber cuando ha finalizado.
 
 ![](https://raw.githubusercontent.com/AndresFelipeGualdron/DogsRace/master/parte1/img/7.PNG)
 creamos un ciclo el cual para cada cinco segundo los hilos y muestra los primos encontrados hasta ese momento
+
+## Parte 2
+
