@@ -12,3 +12,7 @@ Los cores utilizados con un solo hilo son 4, para el rango 0 a 30,000,000
 2. Modify the program so that, instead of solving the problem with a single thread, do it with three, where each of these will make up the first part of the original problem. Check the operation again, and again check the use of the equipment cores.
 
 ![](https://raw.githubusercontent.com/AndresFelipeGualdron/DogsRace/master/parte1/img/2.PNG)
+Los cores utilizados al ejecutar el programa con 3 hilos
+
+![](https://raw.githubusercontent.com/AndresFelipeGualdron/DogsRace/master/parte1/img/3.PNG)
+Codigo de implementacion para iniciar los 3 hilos
