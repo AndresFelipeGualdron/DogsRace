@@ -36,7 +36,7 @@ creamos un ciclo el cual para cada cinco segundo los hilos y muestra los primos 
 ## Parte 3
 
 1. Fix the application so that the results notice is shown only when the execution of all the ‘greyhound’ threads is finished. For this keep in mind:
-  1. The action of starting the race and showing the results is carried out from line 38 of MainCanodromo.
-  2. The join() method of the Thread class can be used to synchronize the thread that starts the race, with the completion of the 1   greyhound threads.
+  - The action of starting the race and showing the results is carried out from line 38 of MainCanodromo.
+  - The join() method of the Thread class can be used to synchronize the thread that starts the race, with the completion of the 1   greyhound threads.
 
 ![](https://raw.githubusercontent.com/AndresFelipeGualdron/DogsRace/master/parte2/img/1.PNG)
