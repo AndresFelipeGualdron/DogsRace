@@ -1,5 +1,7 @@
 package arsw.threads;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 /**
  * Un galgo que puede correr en un carril
  * 
@@ -10,16 +12,23 @@ public class Galgo extends Thread {
 	private int paso;
 	private Carril carril;
 	RegistroLlegada regl;
+	private AtomicBoolean parar = new AtomicBoolean(true);
 
-	public Galgo(Carril carril, String name, RegistroLlegada reg) {
+	public Galgo(AtomicBoolean flag, Carril carril, String name, RegistroLlegada reg) {
 		super(name);
 		this.carril = carril;
 		paso = 0;
 		this.regl=reg;
+		parar = flag;
 	}
 
 	public void corra() throws InterruptedException {
-		while (paso < carril.size()) {			
+		while (paso < carril.size()) {	
+			synchronized (parar) {
+				if(!parar.get()) {
+					parar.wait();
+				}
+			}
 			Thread.sleep(100);
 			carril.setPasoOn(paso++);
 			carril.displayPasos(paso);

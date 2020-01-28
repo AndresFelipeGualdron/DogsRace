@@ -2,6 +2,8 @@ package arsw.threads;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.swing.JButton;
 
@@ -12,6 +14,8 @@ public class MainCanodromo {
     private static Canodromo can;
 
     private static RegistroLlegada reg = new RegistroLlegada();
+    
+    private static AtomicBoolean flag = new AtomicBoolean(true);
 
     public static void main(String[] args) {
         can = new Canodromo(17, 100);
@@ -33,7 +37,7 @@ public class MainCanodromo {
                             public void run() {
                                 for (int i = 0; i < can.getNumCarriles(); i++) {
                                     //crea los hilos 'galgos'
-                                    galgos[i] = new Galgo(can.getCarril(i), "" + i, reg);
+                                    galgos[i] = new Galgo(flag, can.getCarril(i), "" + i, reg);
                                     //inicia los hilos
                                     galgos[i].start();
 
@@ -59,7 +63,11 @@ public class MainCanodromo {
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        System.out.println("Carrera pausada!");
+                    	synchronized (flag) {
+							 flag.set(false);
+							 System.out.println("Carrera pausada!");
+						}
+                        
                     }
                 }
         );
@@ -68,7 +76,11 @@ public class MainCanodromo {
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        System.out.println("Carrera reanudada!");
+                    	synchronized (flag) {
+                    		flag.notifyAll();
+							 flag.set(true);
+							 System.out.println("Carrera reanudada!");
+                    	}
                     }
                 }
         );
